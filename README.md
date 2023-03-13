@@ -1,3 +1,6 @@
+[![Actions Status](https://github.com/Sulima1badge.svg)](https://github.com/Sulima1)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 # CP493-W23-Research
 
 ## Abstract
