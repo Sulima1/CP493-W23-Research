@@ -10,12 +10,12 @@ The term "Big Data" encompasses the enormous quantities of data that are produce
 
 Given a positive integer λ and 3 text files A, B, and C, each having k columns and 10 million rows, the goal is to find 3 rows LA, LB, LC in files A, B, C respectively such that:
 
-```
 
 _L<sub>A</sub>(1) + L<sub>B</sub>(1) + L<sub>C</sub>(1) = λ_
 ...
 _L<sub>A</sub>(k) + L<sub>B</sub>(k) + L<sub>C</sub>(k) = λ_
-```
+
+
 ## Desired Outcome
 
 The solution should work for a 3-way matching with files _A_, _B_, and _C_ having 10 million rows each and around k = 50 columns. The number of rows can vary, but the order of magnitude should be 10 million.
