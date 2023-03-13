@@ -10,7 +10,7 @@ The term "Big Data" encompasses the enormous quantities of data that are produce
 
 Given a positive integer λ and 3 text files A, B, and C, each having k columns and 10 million rows, the goal is to find 3 rows LA, LB, LC in files A, B, C respectively such that:
 
-```scss
+```
 
 _L<sub>A</sub>(1) + L<sub>B</sub>(1) + L<sub>C</sub>(1) = λ_
 ...
