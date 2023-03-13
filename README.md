@@ -1,5 +1,8 @@
 # CP493-W23-Research
 
+## Abstract
+
+The term "Big Data" encompasses the enormous quantities of data that are produced daily fromvarious sources, including finance, healthcare, retail, and manufacturing. The sheer volume,velocity, and variety of this data can be overwhelming, but with the right tools and techniques, itcan be harnessed to derive valuable insights. This specific problem,Tripartite IntegerPartitioning Problem, consists of three large textfiles consisting of millions of rows of integersand 50 columns. Given a positive integer λ, we must calculate 3 rowsLA, LB, LCin files A, B, Crespectively so thatLA(n) + LB(n) + LC(n) = λ.In order to find a valid solution, a complicatedalgorithm must be applied. By taking the first column of each text file and applyingLk(n) ≡ r(mod 10), wherekis each text file andris the remainder,we can simplify and narrow down thenumber of valid rows. Then by applying a hashmap function to each column where {key:value}is {Lk(n) ≡ r (mod 10):the index of the correlatedvalue} we can further isolate the valid rows.Ideally, this algorithmic solution can reduce the number of possible rows by just over half eachtime and complete the problem as close toO(n)runtimeas possible. Practical applications of thissolution can lead to correlation properties which can improve services in areas such as wirelesscommunication, drug design, cryptography, and radar technology.
 
 ## Problem Statement
 
@@ -21,9 +24,26 @@ The current solution under development uses a combination of hash-threading to a
 
 ## General Steps
 
-1. Store index values in the hash table by adding strings.
-2. Loop through the first column of file B and insert the index values of the given elements into the hash table.
-3. Create a nested loop to run through all the potential combinations of A with C.
-4. Process the stored values into strings consisting of Axindex, Bxindex, and Cxindex.
-5. Pass strings to 8 threads, with each string checking a specific row. If a combination of a row from A, B, and C is not equal to λ, the thread is released.
-6. When a thread search on a particular group of rows is complete and it is confirmed that all values are equal to λ, return the original string in an array along with other passed groups as a set of answers.
+1. Grab the first  coloumn of file A file B file C
+
+2. place each of them into their own seperate hash 1000 slots long (k<=1000) k is defined 
+   as the value of a number in the files. Each number in the coloumn represents its position in the hash.
+   the values stored are the indexes of the numbers. So if 35 is found at index 3,7,8 in col a----> col a hash 
+   slot 35 will contain string "3,5,8".
+
+3. for coloumn  of a b and c, loop through a and c hash
+    if a[i] hash slot empty or c[j] hash slot empty, continue
+    else do eqaution b_val=lam-j-i. check b_hash[b_value]. if is
+    empty string continue else store (i, b_val, j) in a potential array.
+
+4. gather all the potentials for a col 1, b col 1 ,c col 1 so that they are in seperate sets
+
+5. repeat steps 1-4 for coloumn two of A,B,C
+
+6. do intersection of sets Acol1 and A col2, B col 1 b col 2 , c col 1  c col 2
+
+7. repeat step 2 but this time add a constraint to only hash the values which are found within the intersection
+
+8. repeat step 3
+
+9. loop step 7 and 8 for all coloumns of A B and C (starting from coloumn three as steps 1-6 use the first two col)
