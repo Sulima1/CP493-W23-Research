@@ -4,7 +4,7 @@
 
 ## Abstract
 
-The term "Big Data" encompasses the enormous quantities of data that are produced daily fromvarious sources, including finance, healthcare, retail, and manufacturing. The sheer volume,velocity, and variety of this data can be overwhelming, but with the right tools and techniques, itcan be harnessed to derive valuable insights. This specific problem,Tripartite IntegerPartitioning Problem, consists of three large textfiles consisting of millions of rows of integersand 50 columns. Given a positive integer λ, we must calculate 3 rowsLA, LB, LCin files A, B, Crespectively so thatLA(n) + LB(n) + LC(n) = λ.In order to find a valid solution, a complicatedalgorithm must be applied. By taking the first column of each text file and applyingLk(n) ≡ r(mod 10), wherekis each text file andris the remainder,we can simplify and narrow down thenumber of valid rows. Then by applying a hashmap function to each column where {key:value}is {Lk(n) ≡ r (mod 10):the index of the correlatedvalue} we can further isolate the valid rows.Ideally, this algorithmic solution can reduce the number of possible rows by just over half eachtime and complete the problem as close toO(n)runtimeas possible. Practical applications of thissolution can lead to correlation properties which can improve services in areas such as wirelesscommunication, drug design, cryptography, and radar technology.
+The term "Big Data" encompasses the enormous quantities of data that are produced daily fromvarious sources, including finance, healthcare, retail, and manufacturing. The sheer volume, velocity, and variety of this data can be overwhelming, but with the right tools and techniques, it can be harnessed to derive valuable insights. This specific problem, Tripartite Integer Partitioning Problem, consists of three large text files consisting of millions of rows of integers and 50 columns. Given a positive integer λ, we must calculate 3 rows _L~A_, _L~B_, _L~C_ in files A, B, C respectively so that _L~A (n) + L~B (n) + L~C (n) = λ_. In order to find a valid solution, a complicated algorithm must be applied. By taking the first column of each text file and applying _L~k (n) ≡ r(mod 10)_, where _k_ is each text file and _r_ is the remainder, we can simplify and narrow down the number of valid rows. Then by applying a hashmap function to each column where _{key:value}is {L~k (n) ≡ r (mod 10):the index of the correlated value}_ we can further isolate the valid rows. Ideally, this algorithmic solution can reduce the number of possible rows by just over half eachtime and complete the problem as close to _O(n)_ runtime as possible. Practical applications of this solution can lead to correlation properties which can improve services in areas such as wireless communication, drug design, cryptography, and radar technology.
 
 ## Problem Statement
 
@@ -12,17 +12,17 @@ Given a positive integer λ and 3 text files A, B, and C, each having k columns 
 
 ```scss
 
-LA(1) + LB(1) + LC(1) = λ
+_LA(1) + LB(1) + LC(1) = λ_
 ...
-LA(k) + LB(k) + LC(k) = λ
+_LA(k) + LB(k) + LC(k) = λ_
 ```
 ## Desired Outcome
 
-The solution should work for a 3-way matching with files A, B, and C having 10 million rows each and around k = 40 columns. The number of rows can vary, but the order of magnitude should be 10 million.
+The solution should work for a 3-way matching with files _A_, _B_, and _C_ having 10 million rows each and around k = 50 columns. The number of rows can vary, but the order of magnitude should be 10 million.
 
 ## Algorithm
 
-The current solution under development uses a combination of hash-threading to achieve the desired results. The algorithm creates a 2D array as a sort of hash table to store the first column value indexes of file B. A hash table allows for O(1) lookup of any element by using the element as an index. The algorithm then calculates the Bx value by using the equation A - (λ - C) = Bx and searches for the Bx value in the hash table. If a value is found within B, the indexes of A and C along with the hash table within B are stored. Once all potential combinations are stored, they are processed using threads. Each thread checks a specific combination of A row, B row, and C row to verify if all elements are equal to λ. If a thread fails to meet this requirement, it is released, and a new combination is tested.
+The current solution under development uses a combination of hash-threading to achieve the desired results. The algorithm creates a 2D array as a sort of hash table to store the first column value indexes of file _B_. A hash table allows for _O(1)_ lookup of any element by using the element as an index. The algorithm then calculates the Bx value by using the equation _A - (λ - C) = B_ and searches for the _B_ value in the hash table. If a value is found within _B_, the indexes of _A_ and _C_ along with the hash table within B are stored. Once all potential combinations are stored, they are processed using threads. Each thread checks a specific combination of _A_ row, _B_ row, and _C_ row to verify if all elements are equal to _λ_. If a thread fails to meet this requirement, it is released, and a new combination is tested.
 
 ## General Steps
 
