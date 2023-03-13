@@ -13,7 +13,7 @@ Given a positive integer λ and 3 text files A, B, and C, each having k columns 
 
 _L<sub>A</sub>(1) + L<sub>B</sub>(1) + L<sub>C</sub>(1) = λ_ \
 ... \
-_L<sub>A</sub>(k) + L<sub>B</sub>(k) + L<sub>C</sub>(k) = λ_ \
+_L<sub>A</sub>(k) + L<sub>B</sub>(k) + L<sub>C</sub>(k) = λ_ 
 
 
 ## Desired Outcome
